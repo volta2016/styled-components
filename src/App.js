@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { colors } from './styles/globals.js'
 
@@ -12,26 +12,50 @@ const Container =  styled.div`
   .row {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
   }
-`
+`;
 
 const SubHead = styled.h3`
   font-size: 24px;
   font-weight: 600;
   margin: 150px 0 48px;
-`
+`;
+
 const Buttons = styled.a`
-  height: 480px;
+  background: ${colors.white};
+  border-radius: 5px;
+  color: ${colors.black};
+  color: ${colors.black};
+  cursor: pointer;
+  height: 48px;
   line-height: 48px;
   padding: 0 64px;
   font-weight: 600px;
-  color: ${colors.black};
-  background-color: ${colors.white};
-  color: ${colors.black};
-  cursor: pointer;
   margin: 0 24px;
-`
+  font-size: 14px;
+  text-decoration: none;
+
+  ${props => 
+  props.outline && 
+  css`
+    background: transparent;
+    border: 1px solid ${colors.black};
+  `}
+
+  ${props => 
+  props.primary && 
+  css`
+    background: ${colors.primary};
+  `}
+
+  ${props => 
+  props.secondary && 
+  css`
+    background: ${colors.secondary};
+  `}
+`;
 
 
 
@@ -54,6 +78,12 @@ function App() {
       </header>
       <Container>
           <SubHead>Buttons</SubHead>
+          <div className="row">
+            <Buttons>Playlist</Buttons>
+            <Buttons outline>Playlist</Buttons>
+            <Buttons primary>Playlist</Buttons>
+            <Buttons secondary>Playlist</Buttons>
+          </div>
           <SubHead>Search Bars</SubHead>
       </Container>
     </div>
