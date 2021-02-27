@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 
 import { Buttons, SearchBar } from './styles/atoms.js';
