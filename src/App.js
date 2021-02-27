@@ -2,7 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import styled, { css } from "styled-components";
 
-import { colors } from './styles/globals.js'
+
+import { Buttons, SearchBar } from './styles/atoms.js';
+import searchIcon  from './svg/search.svg' 
 
 const Container =  styled.div`
   color: #fff;
@@ -23,39 +25,8 @@ const SubHead = styled.h3`
   margin: 150px 0 48px;
 `;
 
-const Buttons = styled.a`
-  background: ${colors.white};
-  border-radius: 5px;
-  color: ${colors.black};
-  color: ${colors.black};
-  cursor: pointer;
-  height: 48px;
-  line-height: 48px;
-  padding: 0 64px;
-  font-weight: 600px;
-  margin: 0 24px;
-  font-size: 14px;
-  text-decoration: none;
 
-  ${props => 
-  props.outline && 
-  css`
-    background: transparent;
-    border: 1px solid ${colors.black};
-  `}
 
-  ${props => 
-  props.primary && 
-  css`
-    background: ${colors.primary};
-  `}
-
-  ${props => 
-  props.secondary && 
-  css`
-    background: ${colors.secondary};
-  `}
-`;
 
 
 
@@ -69,12 +40,13 @@ function App() {
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://styled-components.com/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React Oficial Documentation 
+          Learn Styled Components Official Documentation 
         </a>
+        <p><em><b>UI Components</b> with styled Components</em></p>
       </header>
       <Container>
           <SubHead>Buttons</SubHead>
@@ -85,6 +57,14 @@ function App() {
             <Buttons secondary>Playlist</Buttons>
           </div>
           <SubHead>Search Bars</SubHead>
+          <div className="row">
+            <SearchBar>
+              <img src={searchIcon} alt="search icon"/>
+              <input placeholder="Search for podcats, news, story, etc..." 
+                type="text"
+              />
+            </SearchBar>
+          </div>
       </Container>
     </div>
   );
